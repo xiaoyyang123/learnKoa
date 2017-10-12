@@ -1,0 +1,30 @@
+{
+  "name": "koa-example",
+  "version": "1.0.0",
+  "description": "koa学习",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon index.js"
+  },
+  "author": "xiaoyang",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/cors": "^2.2.1",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.2.1",
+    "moment": "^2.19.1",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.13.8"
+  },
+  "devDependencies": {
+    "cross-env": "^5.0.5",
+    "eslint": "^4.8.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "nodemon": "^1.12.1"
+  }
+}
