@@ -5,10 +5,10 @@ const router = require('./routes')()
 const app = new Koa()
 
 // log request URL
-app.use(async (ctx, next) => {
-  // console.log(`Process ${ctx.request.method} ${ctx.request.url}...`)
-  await next()
-})
+// app.use(async (ctx, next) => {
+//   console.log(`Process ${ctx.request.method} ${ctx.request.url}...`)
+//   await next()
+// })
 
 // parse request body
 app.use(bodyParser())

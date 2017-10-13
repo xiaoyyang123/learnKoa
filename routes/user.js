@@ -1,25 +1,6 @@
 const {User} = require('../models')
 
-const getUser = async ctx => {
-  const res = await User.findAll()
-  ctx.response.body = {
-    code: 0,
-    data: res
-  }
-}
-
-const deleteUser = async (ctx) => {
-  const res = await User.destroy({
-    where: {
-      id: ctx.params.id
-    }
-  })
-  ctx.response.body = {
-    code: 0,
-    data: res
-  }
-}
-
+// 新增用户
 const addUser = async (ctx) => {
   try {
     const data = ctx.request.body
@@ -36,6 +17,29 @@ const addUser = async (ctx) => {
   }
 }
 
+// 删除用户
+const deleteUser = async (ctx) => {
+  const res = await User.destroy({
+    where: {
+      id: ctx.params.id
+    }
+  })
+  ctx.response.body = {
+    code: 0,
+    data: res
+  }
+}
+
+// 查找用户
+const getUser = async ctx => {
+  const res = await User.findAll()
+  ctx.response.body = {
+    code: 0,
+    data: res
+  }
+}
+
+// 修改用户
 const updateUser = async ctx => {
   try {
     const data = ctx.request.body

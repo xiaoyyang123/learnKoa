@@ -5,20 +5,27 @@ const Router = require('koa-router')
 
 function addMapping (router, mapping) {
   for (let url in mapping) {
-    if (url.startsWith('GET ')) {
-      let path = url.substring(4)
-      router.get(path, mapping[url])
-    } else if (url.startsWith('POST ')) {
-      let path = url.substring(5)
-      router.post(path, mapping[url])
-    } else if (url.startsWith('PUT ')) {
-      let path = url.substring(4)
-      router.put(path, mapping[url])
-    } else if (url.startsWith('DELETE ')) {
-      let path = url.substring(7)
-      router.del(path, mapping[url])
-    } else {
-      console.log(`invalid URL: ${url}`)
+    if (!mapping.hasOwnProperty(url)) continue
+    let path
+    switch (url.replace(/^([A-Z]+)\s.+/g, '$1')) {
+      case 'GET':
+        path = url.substring(4)
+        router.get(path, mapping[url])
+        break
+      case 'POST':
+        path = url.substring(5)
+        router.post(path, mapping[url])
+        break
+      case 'PUT':
+        path = url.substring(4)
+        router.put(path, mapping[url])
+        break
+      case 'DELETE':
+        path = url.substring(7)
+        router.del(path, mapping[url])
+        break
+      default:
+        console.log(`invalid URL: ${url}`)
     }
   }
 }
